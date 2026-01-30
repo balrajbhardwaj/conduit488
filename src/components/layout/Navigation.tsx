@@ -56,9 +56,10 @@ export function Navigation() {
           <Link href="/" className="flex items-center group">
             <div className="relative w-10 h-10">
               <Image
-                src="/logo-white.svg"
+                src="/logo.png"
                 alt="Conduit488"
-                fill
+                width={40}
+                height={40}
                 className="object-contain"
                 priority
               />

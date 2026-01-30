@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: 'Honest AI. Built for trust. We build data platforms where every insight shows its confidence level.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'Conduit488 - Engineering Reliable Data',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Conduit488 | Engineering Reliable Data to Earn Your Trust',
     description: 'Honest AI. Built for trust.',
-    images: ['/og-image.png'],
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
