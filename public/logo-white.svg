@@ -1,0 +1,14 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer C shape with glass effect - white version -->
+  <path d="M20 2C10.059 2 2 10.059 2 20C2 29.941 10.059 38 20 38C25.523 38 30.477 35.523 34 31.5" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Inner glow layer -->
+  <path d="M20 8C13.373 8 8 13.373 8 20C8 26.627 13.373 32 20 32C23.313 32 26.313 30.657 28.485 28.485" stroke="#B85C38" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  
+  <!-- Glass panel indicators -->
+  <path d="M20 14C16.686 14 14 16.686 14 20C14 23.314 16.686 26 20 26" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+  
+  <!-- Data flow indicator -->
+  <circle cx="34" cy="31.5" r="2" fill="#B85C38"/>
+  <circle cx="28.485" cy="28.485" r="1.5" fill="#B85C38" opacity="0.7"/>
+</svg>
