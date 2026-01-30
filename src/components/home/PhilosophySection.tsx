@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { PhilosophyAnimationOption1 } from './PhilosophyAnimationOption1'
 
 export function PhilosophySection() {
   return (
@@ -14,8 +15,13 @@ export function PhilosophySection() {
             Why We're Called 488
           </h2>
           <p className="text-lg text-sovereign-600 leading-relaxed">
-            Most AI companies promise certainty. We promise honesty.
+            We promise certainty with reliability.
           </p>
+        </div>
+
+        {/* Animated visualization */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <PhilosophyAnimationOption1 />
         </div>
 
         {/* Philosophy breakdown */}

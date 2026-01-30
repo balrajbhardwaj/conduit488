@@ -54,16 +54,14 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-10 h-10">
-              <Image
-                src="/logo.png"
-                alt="Conduit488"
-                width={40}
-                height={40}
-                className="object-contain"
-                priority
-              />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Conduit488"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
+            />
             <div className="ml-3 flex flex-col">
               <span className="text-xl font-bold tracking-tight text-white">
                 CONDUIT<span className="text-terracotta">488</span>
