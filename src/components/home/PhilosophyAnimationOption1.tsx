@@ -70,26 +70,41 @@ export function PhilosophyAnimationOption1() {
       progress += speed
       if (progress > 1) progress = 0
 
-      // Draw the four pillars (4 principles)
-      const pillarWidth = width / 6
-      const pillarSpacing = width / 5
-      const startX = pillarSpacing / 2
-
-      principleColors.forEach((color, i) => {
-        const x = startX + i * pillarSpacing
-        const pillarHeight = 40 + Math.sin(progress * Math.PI * 2 + i) * 10
-
-        const gradient = ctx.createLinearGradient(x, height - pillarHeight, x, height)
-        gradient.addColorStop(0, color + '80')
-        gradient.addColorStop(1, color + '20')
-
-        ctx.fillStyle = gradient
-        ctx.fillRect(x - pillarWidth / 2, height - pillarHeight, pillarWidth, pillarHeight)
-
-        ctx.strokeStyle = color
-        ctx.lineWidth = 2
-        ctx.strokeRect(x - pillarWidth / 2, height - pillarHeight, pillarWidth, pillarHeight)
-      })
+      // Draw 10 colored bars with incremental heights
+      const barCount = 10;
+      const barWidth = width / 18;
+      const barSpacing = width / 12;
+      const barBase = height - 24;
+      const barColors = [
+        '#64748b', '#64748b', '#64748b', // 1-3 grey
+        '#B85C38',                      // 4 red/terracotta
+        '#F59E0B',                      // 5 amber
+        '#10B981',                      // 6 green
+        '#047857',                      // 7 dark green
+        '#3b82f6',                      // 8 blue
+        '#1e40af', '#1e40af'            // 9-10 dark blue
+      ];
+      // Bar labels
+      const barLabels = [
+        'Random', '', '', 'Noise', 'Ambiguity',
+        '', 'Reliability', 'Confidence', 'Usability', 'Certainity'
+      ];
+      ctx.font = '12px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      for (let i = 0; i < barCount; i++) {
+        // Animate bar height with a wave pattern
+        const wave = Math.sin(progress * Math.PI * 2 + i * 0.5);
+        const barHeight = 30 + i * 18 + wave * 16;
+        ctx.fillStyle = barColors[i];
+        ctx.globalAlpha = 0.85;
+        const x = (width / 2 - ((barCount - 1) * barSpacing) / 2) + i * barSpacing;
+        ctx.fillRect(x - barWidth / 2, barBase - barHeight, barWidth, barHeight);
+        ctx.globalAlpha = 1;
+        // Draw label under each bar
+        ctx.fillStyle = (barLabels[i] === '0' || barLabels[i] === '0.4' || barLabels[i] === '0.8') ? '#f59e0b' : '#cbd5e1';
+        ctx.font = (barLabels[i] === '0' || barLabels[i] === '0.4' || barLabels[i] === '0.8') ? 'bold 13px Inter, sans-serif' : '12px Inter, sans-serif';
+        ctx.fillText(barLabels[i], x, barBase + 18);
+      }
 
       // Draw journey line
       ctx.strokeStyle = '#64748b40'
@@ -101,11 +116,7 @@ export function PhilosophyAnimationOption1() {
       ctx.stroke()
       ctx.setLineDash([])
 
-      // Labels
-      ctx.font = '14px Inter, sans-serif'
-      ctx.fillStyle = '#64748b'
-      ctx.fillText('0.4', 10, height * 0.7)
-      ctx.fillText('0.8', width - 35, height * 0.3)
+      // Remove old 0.4/0.8 labels (now handled in bar labels)
 
       // Animate particles
       particles.forEach((particle) => {
@@ -175,15 +186,12 @@ export function PhilosophyAnimationOption1() {
         style={{ width: '100%', height: '100%' }}
       />
       
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex items-start justify-center pointer-events-none" style={{ top: '54px' }}>
         <div className="text-center space-y-2">
-          <div className="flex items-center justify-center gap-4 text-2xl font-bold text-white">
+          <div className="flex items-center justify-center gap-1 text-2xl font-bold text-white">
             <span className="text-terracotta">4</span>
-            <span className="text-blue-400">8</span>
             <span className="text-emerald-400">8</span>
-          </div>
-          <div className="text-sm text-white/60 font-medium">
-            Principles → Journey → Promise
+            <span className="text-blue-400">8</span>
           </div>
         </div>
       </div>
